@@ -2,7 +2,6 @@
 Tun run locally install dependencies with `yarn install` and run `yarn dev`.
 
 ## Clients
-Only clients that support hooks were looked at.
 
 ### Apollo Client
 - GitHub (15.2k): https://github.com/apollographql/apollo-client
@@ -38,4 +37,12 @@ and [persistance](https://www.apollographql.com/docs/react/caching/advanced-topi
 - Next JS Example: https://github.com/vercel/next.js/tree/canary/examples/with-graphql-react
 
 
--
+- Supports caching and SSR
+- Few stars compared to the others but still actively maintained
+- Comparison with Apollo by the Author: https://github.com/jaydenseric/graphql-react#apollo-comparison
+
+### urql
+- GitHub (~5.3k): https://github.com/FormidableLabs/urql
+- Next JS Example: https://github.com/vercel/next.js/tree/canary/examples/with-urql
+
+No hooks. 
