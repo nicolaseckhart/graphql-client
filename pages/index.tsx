@@ -11,13 +11,17 @@ export const Home: React.FC = () => {
 
       <main>
         <h1>GraphQL Client</h1>
-        <a href="/apollo-example-1">Apollo Example 1</a><br />
-        <a href="/apollo-example-2">Apollo Example 2</a><br />
-        <a href="/graphql-hooks-example">GraphQL Hooks Example</a><br />
-        <a href="/graphql-react-example">GraphQL React Example</a><br />
+        <a href="/apollo-example-1">Apollo Example 1</a>
+        <br />
+        <a href="/apollo-example-2">Apollo Example 2</a>
+        <br />
+        <a href="/graphql-hooks-example">GraphQL Hooks Example</a>
+        <br />
+        <a href="/graphql-react-example">GraphQL React Example</a>
+        <br />
       </main>
     </div>
-  );
-};
+  )
+}
 
 export default Home

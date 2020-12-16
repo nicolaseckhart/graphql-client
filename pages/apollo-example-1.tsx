@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import { PLACE_QUERY } from '../helpers/queries'
-import * as ApolloClient from '../helpers/apollo-client';
+import * as ApolloClient from '../helpers/apollo-client'
 
 const ApolloExample1: React.FC = () => {
-  const [place, setPlace] = useState();
+  const [place, setPlace] = useState()
 
-  ApolloClient.getClient().query(
-    {
+  ApolloClient.getClient()
+    .query({
       query: PLACE_QUERY,
       variables: {
-        id: 'Foobar'
-      }
-    }).then(result => setPlace(result.data));
+        id: 'Foobar',
+      },
+    })
+    .then((result) => setPlace(result.data))
 
   return (
     <>
@@ -27,10 +28,10 @@ const ApolloExample1: React.FC = () => {
           <a href="https://www.apollographql.com/docs/react">Apollo Client</a>
           &nbsp;using <code>client.query(...)</code> to get results.
         </p>
-        <p>Place: { JSON.stringify(place) }</p>
+        <p>Place: {JSON.stringify(place)}</p>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default ApolloExample1;
+export default ApolloExample1
