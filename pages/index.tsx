@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 export const Home: React.FC = () => {
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>GraphQL Client</title>
         <link rel="icon" href="/favicon.ico" />
