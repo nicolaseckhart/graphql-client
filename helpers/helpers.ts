@@ -8,8 +8,8 @@ export const getClient = () => (
 );
 
 export const query = gql`
-    query {
-        place(id: "foobar") {
+    query Place($id: String!) {
+        place(id: $id) {
             id
             title
             addressLines

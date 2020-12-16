@@ -12,7 +12,7 @@ const ApolloExample2: React.FC = () => {
 };
 
 const ExampleConsumer: React.FC = () => {
-  const { loading, error, data } = useQuery(query);
+  const { loading, error, data } = useQuery(query, { variables: { id: 'Foobar' } });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;

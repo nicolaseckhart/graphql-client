@@ -5,7 +5,7 @@ import { getClient, query } from '../helpers/helpers'
 const ApolloExample1: React.FC = () => {
   const [place, setPlace] = useState();
 
-  getClient().query({ query: query }).then(result => setPlace(result.data));
+  getClient().query({ query: query, variables: { id: 'Foobar' } }).then(result => setPlace(result.data));
 
   return (
     <div className="container">
