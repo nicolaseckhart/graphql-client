@@ -12,6 +12,7 @@ export const Home: React.FC = () => {
       <main>
         <h1>GraphQL Client</h1>
         <a href="/apollo-example-1">Apollo Example 1</a><br />
+        <a href="/apollo-example-2">Apollo Example 2</a><br />
       </main>
     </div>
   );
