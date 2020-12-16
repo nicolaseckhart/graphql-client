@@ -1,27 +1,41 @@
-# NextJS Typescript Boilerplate
+# GraphQL Client Evaluations
+Tun run locally install dependencies with `yarn install` and run `yarn dev`.
 
-Bootstrap a developer-friendly NextJS app configured with:
+## Clients
+Only clients that support hooks were looked at.
 
-- [Typescript](https://www.typescriptlang.org/)
-- Linting with [ESLint](https://eslint.org/)
-- Formatting with [Prettier](https://prettier.io/)
-- Linting, typechecking and formatting on by default using [`husky`](https://github.com/typicode/husky) for commit hooks
-- Testing with [Jest](https://jestjs.io/) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro)
+### Apollo Client
+- GitHub (15.2k): https://github.com/apollographql/apollo-client
+- Docs: https://www.apollographql.com/docs/react/api/apollo-client
+- Next JS Example: https://github.com/vercel/next.js/tree/canary/examples/api-routes-apollo-server-and-client#readme
+- Next JS Example (TS): https://github.com/vercel/next.js/tree/canary/examples/with-typescript-graphql
 
-## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com):
+- Server side rendering: https://www.apollographql.com/docs/react/api/react-ssr
+- Caching: https://www.apollographql.com/docs/react/caching/cache-configuration
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/with-typescript-eslint-jest)
+Advantages of **Apollo** over **Relay**: https://open.nytimes.com/the-new-york-times-now-on-apollo-b9a78a5038c
 
-## How to use
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+### GraphQL Hooks
+- GitHub (1.4k): https://github.com/nearform/graphql-hooks
+- Next JS Example: https://github.com/vercel/next.js/tree/canary/examples/with-graphql-hooks
 
-```bash
-npx create-next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
-# or
-yarn create next-app --example with-typescript-eslint-jest with-typescript-eslint-jest-app
-```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- Server side rendering: https://github.com/nearform/graphql-hooks/tree/master/packages/graphql-hooks-ssr
+- Caching: https://github.com/nearform/graphql-hooks/tree/master/packages/graphql-hooks-memcache
+- Pros: small size, concise API, quick setup
+- Cons: No middleware support, caching less configurable when compared to Apollo
+ 
+
+https://blog.logrocket.com/comparing-hooks-libraries-for-graphql compares **Apollo** and **GraphQL Hooks** in a small project.
+The author prefers GraphQL Hooks for it's simple API and quick setup. Both provide similar SSR capabilities, both have caching 
+packages (though Apollo provides more options to configure the caching and has options for [cache interaction](https://www.apollographql.com/docs/react/caching/cache-interaction/) 
+and [persistance](https://www.apollographql.com/docs/react/caching/advanced-topics/#cache-persistence)).
+
+### GraphQL React
+- GitHub (~600): https://github.com/jaydenseric/graphql-react
+- Next JS Example: https://github.com/vercel/next.js/tree/canary/examples/with-graphql-react
+
+
+-
