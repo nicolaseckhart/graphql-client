@@ -46,3 +46,45 @@ and [persistance](https://www.apollographql.com/docs/react/caching/advanced-topi
 - Next JS Example: https://github.com/vercel/next.js/tree/canary/examples/with-urql
 
 No hooks. 
+
+## Code Generation
+
+[GraphQL Code Generator](https://github.com/dotansimha/graphql-code-generator) can be used to generate code as seen
+in apollo example 2. This means the imported query type can be used like `useQuery<Query>` to have typed
+results.
+
+```
+// Dev dependendies
+"@graphql-codegen/cli": "1.19.4",
+"@graphql-codegen/introspection": "1.18.1",
+"@graphql-codegen/typescript": "1.19.0",
+"@graphql-codegen/typescript-operations": "1.17.12",
+"@graphql-codegen/typescript-react-apollo": "2.2.1",
+```
+
+Config:
+
+```yaml
+# codegen.yml
+
+overwrite: true
+schema: "http://localhost:8080/v1/graphql"
+generates:
+  graphql/generated/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+```
+
+Generate:
+
+```
+graphql-codegen --config codegen.yml
+```
+
+or
+
+```
+yarn run codegen
+```
