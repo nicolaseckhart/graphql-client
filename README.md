@@ -45,7 +45,15 @@ and [persistance](https://www.apollographql.com/docs/react/caching/advanced-topi
 - GitHub (~5.3k): https://github.com/FormidableLabs/urql
 - Next JS Example: https://github.com/vercel/next.js/tree/canary/examples/with-urql
 
-No hooks.
+No hooks. Works more like an axios with some graphql flavored sugar. 
+
+### Relay
+
+Some comparisons with Apollo:
+- https://www.prisma.io/blog/relay-vs-apollo-comparing-graphql-clients-for-react-apps-b40af58c1534
+- https://maxrozen.com/2018/12/15/apollo-vs-relay-which-graphql-client-to-use-2019/
+
+Both say the barrier of entry for Relay is much higher and Apollo has a better development experience.
 
 ## Code Generation
 
