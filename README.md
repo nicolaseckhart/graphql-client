@@ -71,42 +71,48 @@ Both say the barrier of entry for Relay is much higher and Apollo has a better d
 
 # Code Generation
 
-[GraphQL Code Generator](https://github.com/dotansimha/graphql-code-generator) can be used to generate code as seen
-in apollo example 2. This means the imported query type can be used like `useQuery<Query>` to have typed
-results.
+[GraphQL Code Generator](https://github.com/dotansimha/graphql-code-generator) wrapped with [graphql-let](https://github.com/piglovesyou/graphql-let) 
+lets you specify any queries and mutations in graphql documents (check `graphql/documents` in the code) and use them to generate all typings and custom 
+hooks. As seen in the example (`pages/apollo-example-2.tsx`), a place is fetched with the hook `usePlaceQuery`.
 
+Configuration:
 ```
-// Dev dependendies
-"@graphql-codegen/cli": "1.19.4",
-"@graphql-codegen/introspection": "1.18.1",
-"@graphql-codegen/typescript": "1.19.0",
-"@graphql-codegen/typescript-operations": "1.17.12",
-"@graphql-codegen/typescript-react-apollo": "2.2.1",
-```
+# ./.graphql-let.yml
 
-Config:
-
-```yaml
-# codegen.yml
-
-overwrite: true
 schema: 'http://localhost:8080/v1/graphql'
-generates:
-  graphql/generated/graphql.tsx:
-    plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-react-apollo'
+documents: 'graphql/documents/*.graphql'
+plugins:
+  - 'typescript'
+  - 'typescript-operations'
+  - 'typescript-react-apollo'
 ```
 
-Generate:
+Document loaders in next config:
+```
+# ./next.config.js
 
-```
-graphql-codegen --config codegen.yml
+module.exports = {
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.graphql$/,
+      exclude: /node_modules/,
+      use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
+    })
+
+    config.module.rules.push({
+      test: /\.graphqls$/,
+      exclude: /node_modules/,
+      use: ['graphql-let/schema/loader'],
+    })
+
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      type: 'json',
+      use: 'yaml-loader',
+    })
+
+    return config
+  },
+};
 ```
 
-or
-
-```
-yarn run codegen
-```

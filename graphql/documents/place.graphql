@@ -1,0 +1,7 @@
+query Place($id: String!) {
+  place(id: $id) {
+    id
+    title
+    addressLines
+  }
+}

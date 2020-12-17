@@ -1,10 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import { ApolloProvider, useQuery } from '@apollo/client'
-import { PLACE_QUERY } from '../helpers/queries'
+import { ApolloProvider } from '@apollo/client'
 import * as ApolloClient from '../helpers/apollo-client'
-import { Query } from '../graphql/generated/graphql'
 import PlaceComponent from '../components/place-component'
+import { usePlaceQuery } from '../graphql/documents/place.graphql'
 
 const ApolloExample2: React.FC = () => {
   return (
@@ -15,7 +14,7 @@ const ApolloExample2: React.FC = () => {
 }
 
 const ExampleConsumer: React.FC = () => {
-  const { loading, error, data } = useQuery<Query>(PLACE_QUERY, {
+  const { loading, error, data } = usePlaceQuery({
     variables: { id: 'Foobar' },
   })
 
@@ -33,8 +32,8 @@ const ExampleConsumer: React.FC = () => {
         <h1>Apollo Example 2</h1>
         <p>
           <a href="https://www.apollographql.com/docs/react">Apollo Client</a>
-          &nbsp;using <code>useQuery(...)</code> with graphql-code-generator to
-          get typed results.
+          &nbsp;using <code>useQuery(...)</code> with graphql-let and
+          graphql-code-generator to get already typed results and custom hooks.
         </p>
         <PlaceComponent place={data.place} />
       </main>

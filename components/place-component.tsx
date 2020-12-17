@@ -1,5 +1,5 @@
-import { Place } from '../graphql/generated/graphql'
 import React from 'react'
+import { Place } from '../graphql/documents/place.graphql'
 
 interface Props {
   place: Place

@@ -12,7 +12,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-let && yarn format"
   },
   "husky": {
     "hooks": {
@@ -39,6 +39,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "1.19.4",
     "@graphql-codegen/introspection": "1.18.1",
+    "@graphql-codegen/plugin-helpers": "^1.18.2",
     "@graphql-codegen/typescript": "1.19.0",
     "@graphql-codegen/typescript-operations": "1.17.12",
     "@graphql-codegen/typescript-react-apollo": "2.2.1",
@@ -52,6 +53,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-react": "^7.19.0",
+    "graphql-let": "^0.16.3",
     "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.2.3",
